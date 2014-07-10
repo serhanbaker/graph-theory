@@ -11,8 +11,6 @@ This repository will contain the following:
         * Cycle Finding
         * Topological Sorting
         * Strongly Connected Components
-
-
 * Weighted Graph Algorithms
     * Minimum Spanning Trees
         * Prim's Algorithm
