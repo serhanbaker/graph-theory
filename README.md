@@ -11,6 +11,12 @@ This repository will contain the following:
         * Cycle Finding
         * Topological Sorting
         * Strongly Connected Components
+
+
 * Weighted Graph Algorithms
-    * Dijkstra Algorithm
+    * Minimum Spanning Trees
+        * Prim's Algorithm
+        * Kruskal's Algorithm
+    * Shortest Paths
+        * Dijkstra Algorithm
     * Network Flows and Bipartite Matching
