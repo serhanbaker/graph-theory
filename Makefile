@@ -6,7 +6,9 @@ FILE =
 .java.class:
 	        $(JC) $(JFLAGS) $*.java
 CLASSES = \
-					Test.java
+        Test.java \
+        Graph.java \
+        Node.java \
 
 MAIN = Test
 

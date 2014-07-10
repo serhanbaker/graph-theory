@@ -1,8 +1,13 @@
 public class Test {
     public static void main (String[] args) {
-        Node p = new Node(7);
-        Node k = new Node(300);
-        p.next = k;
-        System.out.printf("this will be a field in our adjacency list %s\n", p);
+        Graph g = new Graph();
+        g.insertEdge(1, 2, false);
+        g.insertEdge(1, 5, false);
+        g.insertEdge(1, 6, false);
+        g.insertEdge(2, 5, false);
+        g.insertEdge(2, 3, false);
+        g.insertEdge(3, 4, false);
+        g.insertEdge(4, 5, false);
+        g.printGraph();
     }
 }
