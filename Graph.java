@@ -16,6 +16,17 @@ public class Graph {
         }
     }
 
+    void readGraph(boolean directed) {
+        int x,y;
+        Scanner in = new Scanner(System.in);
+        int edgeCount = in.nextInt();
+        for (int i = 0; i < edgeCount; i++) {
+            x = in.nextInt();
+            y = in.nextInt();
+            insertEdge(x, y, directed);
+        }
+    }
+
     void insertEdge(int x, int y, boolean directed) {
         Node p = new Node(y);
         p.next = adjList[x];
