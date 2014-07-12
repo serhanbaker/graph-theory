@@ -9,6 +9,7 @@ CLASSES = \
         Test.java \
         Graph.java \
         Node.java \
+        Queue.java
 
 MAIN = Test
 
