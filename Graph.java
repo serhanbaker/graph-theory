@@ -8,8 +8,11 @@ public class Graph {
     static final int MAXV = 1000; // maximum possible vertex count
     Node[] adjList = new Node[MAXV + 1];
     boolean directed;
+    int nVertices;
+    int nEdges;
 
     public Graph() { // initialize
+        nEdges = nVertices = 0;
         this.directed = directed;
         for (int i = 1; i < MAXV; i++) {
             adjList[i] = null;
@@ -19,6 +22,7 @@ public class Graph {
     void readGraph(boolean directed) {
         int x,y;
         Scanner in = new Scanner(System.in);
+        nVertices = in.nextInt();
         int edgeCount = in.nextInt();
         for (int i = 0; i < edgeCount; i++) {
             x = in.nextInt();
@@ -34,6 +38,8 @@ public class Graph {
         /* insert x,y pair and y,x pair so that we can have undirected graph */
         if (!directed) {
             insertEdge(y, x, true);
+        } else {
+            nEdges++;
         }
     }
 
