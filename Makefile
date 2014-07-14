@@ -8,9 +8,6 @@ FILE =
 CLASSES = \
         Test.java \
         Graph.java \
-        Node.java \
-        Queue.java \
-        BfsTraversal.java
 
 MAIN = Test
 

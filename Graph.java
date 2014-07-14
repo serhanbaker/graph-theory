@@ -1,53 +1,45 @@
-import java.util.Scanner;
-
 /**
- * @serhanbaker, 26.Jun.2014.
+ * @serhanbaker
  */
-
-public class Graph {
-    static final int MAXV = 1000; // maximum possible vertex count
-    Node[] adjList = new Node[MAXV + 1];
+import java.util.*;
+class Graph {
+    HashMap<Integer, LinkedList<Integer>> adjList;
     boolean directed;
-    int nVertices;
-    int nEdges;
 
-    public Graph() { // initialize
-        nEdges = nVertices = 0;
+    public Graph(boolean directed) {
         this.directed = directed;
-        for (int i = 1; i < MAXV; i++) {
-            adjList[i] = null;
-        }
+        adjList = new HashMap<Integer, LinkedList<Integer>>();
     }
 
-    void readGraph(boolean directed) {
-        int x,y;
+    public void addEdge(int v1, int v2) {
+        adjList.get(v1).add(v2);
+        if (!directed)
+            adjList.get(v2).add(v1);
+    }
+
+    public void readGraph() {
+        int x, y;
         Scanner in = new Scanner(System.in);
-        nVertices = in.nextInt();
-        int edgeCount = in.nextInt();
-        for (int i = 0; i < edgeCount; i++) {
+        int m = in.nextInt(); // # of given connections between vertices
+        for (int i = 1; i <= m; i++) {
             x = in.nextInt();
             y = in.nextInt();
-            insertEdge(x, y, directed);
+            if (!adjList.containsKey(x))
+                adjList.put(x, new LinkedList<Integer>());
+            if (!adjList.containsKey(y))
+                adjList.put(y, new LinkedList<Integer>());
+            addEdge(x, y);
         }
     }
 
-    void insertEdge(int x, int y, boolean directed) {
-        Node p = new Node(y);
-        p.next = adjList[x];
-        adjList[x] = p;
-        /* insert x,y pair and y,x pair so that we can have undirected graph */
-        if (!directed) {
-            insertEdge(y, x, true);
-        } else {
-            nEdges++;
+    public void printGraph() {
+        for (Map.Entry<Integer, LinkedList<Integer>> entry : adjList.entrySet()) {
+            Integer key = entry.getKey();
+            System.out.println(key + "-> " + getNeighbors(key));
         }
     }
 
-    void printGraph() {
-        for(int i = 1; i < adjList.length; i++) {
-            Node p = adjList[i];
-            if (p != null)
-                System.out.println(i + ": " + p);
-        }
+    public List<Integer> getNeighbors(int v) {
+        return adjList.get(v);
     }
 }

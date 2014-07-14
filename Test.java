@@ -1,10 +1,10 @@
+/**
+ * @serhanbaker
+ */
 public class Test {
-    public static void main (String[] args) {
-        Graph g = new Graph();
-        g.readGraph(false);
+    public static void main(String[] args) {
+        Graph g = new Graph(false);
+        g.readGraph();
         g.printGraph();
-        int start = 1; // your start node for YOUR graph
-        BfsTraversal.initializeSearch(g);
-        BfsTraversal.bfs(g, start);
     }
 }
